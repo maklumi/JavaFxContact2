@@ -1,0 +1,51 @@
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane fx:controller="sample.Controller"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:id="mainPanel">
+
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu text="Menu">
+                    <items>
+                        <MenuItem text="Add..." onAction="#showAddContactDialog"></MenuItem>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+
+    <center>
+        <TableView fx:id="contactsTable">
+            <columns>
+
+                <TableColumn text="First Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="firstName"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="Last Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="lastName"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="Phone Number">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="phoneNumber"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="Notes">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="notes"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
