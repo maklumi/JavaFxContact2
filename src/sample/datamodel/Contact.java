@@ -1,4 +1,4 @@
-package sample;
+package sample.datamodel;
 
 import javafx.beans.property.SimpleStringProperty;
 

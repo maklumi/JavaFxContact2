@@ -1,9 +1,7 @@
-package sample;
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.ListPropertyBase;
-import javafx.collections.ListChangeListener;
+package sample.datamodel;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.jetbrains.annotations.NotNull;
+import sample.datamodel.Contact;
 
 import javax.xml.stream.XMLEventFactory;
 import javax.xml.stream.XMLEventReader;
@@ -20,10 +18,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
 
 public class ContactData {
@@ -39,178 +33,7 @@ public class ContactData {
     private ObservableList<Contact> contacts;
 
     public ContactData() {
-        contacts = new ObservableList<Contact>() {
-            @Override
-            public void addListener(ListChangeListener<? super Contact> listener) {
-
-            }
-
-            @Override
-            public void removeListener(ListChangeListener<? super Contact> listener) {
-
-            }
-
-            @Override
-            public boolean addAll(Contact... elements) {
-                return false;
-            }
-
-            @Override
-            public boolean setAll(Contact... elements) {
-                return false;
-            }
-
-            @Override
-            public boolean setAll(Collection<? extends Contact> col) {
-                return false;
-            }
-
-            @Override
-            public boolean removeAll(Contact... elements) {
-                return false;
-            }
-
-            @Override
-            public boolean retainAll(Contact... elements) {
-                return false;
-            }
-
-            @Override
-            public void remove(int from, int to) {
-
-            }
-
-            @Override
-            public int size() {
-                return 0;
-            }
-
-            @Override
-            public boolean isEmpty() {
-                return false;
-            }
-
-            @Override
-            public boolean contains(Object o) {
-                return false;
-            }
-
-            @NotNull
-            @Override
-            public Iterator<Contact> iterator() {
-                return null;
-            }
-
-            @NotNull
-            @Override
-            public Object[] toArray() {
-                return new Object[0];
-            }
-
-            @NotNull
-            @Override
-            public <T> T[] toArray(@NotNull T[] a) {
-                return null;
-            }
-
-            @Override
-            public boolean add(Contact contact) {
-                return false;
-            }
-
-            @Override
-            public boolean remove(Object o) {
-                return false;
-            }
-
-            @Override
-            public boolean containsAll(@NotNull Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public boolean addAll(@NotNull Collection<? extends Contact> c) {
-                return false;
-            }
-
-            @Override
-            public boolean addAll(int index, @NotNull Collection<? extends Contact> c) {
-                return false;
-            }
-
-            @Override
-            public boolean removeAll(@NotNull Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public boolean retainAll(@NotNull Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public void clear() {
-
-            }
-
-            @Override
-            public Contact get(int index) {
-                return null;
-            }
-
-            @Override
-            public Contact set(int index, Contact element) {
-                return null;
-            }
-
-            @Override
-            public void add(int index, Contact element) {
-
-            }
-
-            @Override
-            public Contact remove(int index) {
-                return null;
-            }
-
-            @Override
-            public int indexOf(Object o) {
-                return 0;
-            }
-
-            @Override
-            public int lastIndexOf(Object o) {
-                return 0;
-            }
-
-            @NotNull
-            @Override
-            public ListIterator<Contact> listIterator() {
-                return null;
-            }
-
-            @NotNull
-            @Override
-            public ListIterator<Contact> listIterator(int index) {
-                return null;
-            }
-
-            @NotNull
-            @Override
-            public List<Contact> subList(int fromIndex, int toIndex) {
-                return null;
-            }
-
-            @Override
-            public void addListener(InvalidationListener listener) {
-
-            }
-
-            @Override
-            public void removeListener(InvalidationListener listener) {
-
-            }
-        };
+        contacts = FXCollections.observableArrayList();
     }
 
     public ObservableList<Contact> addContact(Contact item) {
@@ -225,7 +48,7 @@ public class ContactData {
         contacts.remove(item);
         return contacts;
     }
-    // *** Add methods to add/delete/access contacts here ***
+    //
 
     public void loadContacts() {
         try {
